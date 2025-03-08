@@ -67,6 +67,7 @@ def run_flux_pipeline_batch(
     pipe.remove_all_hooks()
     pipe = pipe.to("cuda")
     pipe.enable_attention_slicing()
+    pipe.enable_model_cpu_offload()
 
     # Ensure output_names matches prompts in length
     if output_names is None:
